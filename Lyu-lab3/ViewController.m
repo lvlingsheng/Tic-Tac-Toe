@@ -194,7 +194,7 @@ enum state {
             [[self location8] setBackgroundColor:self.view.tintColor];
             [[self location9] setTitle:@" " forState:UIControlStateNormal];
             [[self location9] setBackgroundColor:self.view.tintColor];
-            
+            win=0;
             [self choosegamemode];
         }else{
             NSLog(@"playagain");
@@ -380,7 +380,7 @@ enum state {
         [currentstate insertObject: player atIndex: 0];
         [self updatecurrentstate];
         [self changeTurn];
-        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "]){
+        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "] && !win){
             [self sysplay];
         }
     }
@@ -393,7 +393,7 @@ enum state {
         [currentstate insertObject: player atIndex: 1];
         [self updatecurrentstate];
         [self changeTurn];
-        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "]){
+        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "] && !win){
             [self sysplay];
         }
     }
@@ -408,7 +408,7 @@ enum state {
         [currentstate insertObject: player atIndex: 2];
         [self updatecurrentstate];
         [self changeTurn];
-        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "]){
+        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "] && !win){
             [self sysplay];
         }
     }
@@ -421,7 +421,7 @@ enum state {
         [currentstate insertObject: player atIndex: 3];
         [self updatecurrentstate];
         [self changeTurn];
-        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "]){
+        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "] && !win){
             [self sysplay];
         }
     }
@@ -434,7 +434,7 @@ enum state {
         [currentstate insertObject: player atIndex: 4];
         [self updatecurrentstate];
         [self changeTurn];
-        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "]){
+        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "] && !win){
             [self sysplay];
         }
     }
@@ -447,7 +447,7 @@ enum state {
         [currentstate insertObject: player atIndex: 5];
         [self updatecurrentstate];
         [self changeTurn];
-        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "]){
+        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "] && !win){
             [self sysplay];
         }
     }
@@ -460,7 +460,7 @@ enum state {
         [currentstate insertObject: player atIndex: 6];
         [self updatecurrentstate];
         [self changeTurn];
-        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "]){
+        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "] && !win){
             [self sysplay];
         }
     }
@@ -472,7 +472,7 @@ enum state {
         [currentstate insertObject: player atIndex: 7];
         [self updatecurrentstate];
         [self changeTurn];
-        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "]){
+        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "] && !win){
             [self sysplay];
         }
     }
@@ -486,7 +486,7 @@ enum state {
         [currentstate insertObject: player atIndex: 8];
         [self updatecurrentstate];
         [self changeTurn];
-        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "]){
+        if([gamemode isEqual:@"one"] && [player isEqual:@"O"] && [currentstate containsObject:@" "] && !win){
             [self sysplay];
         }
     }
@@ -658,9 +658,9 @@ enum state {
         }
         
         
-        if(![player isEqual:playeralpha]  && [gamemode isEqual:@"one"]){
+        if([player isEqual:playeralpha]  && [gamemode isEqual:@"one"]){
             [self wingame];
-        }else if([player isEqual:playeralpha]  && [gamemode isEqual:@"one"]){
+        }else if(![player isEqual:playeralpha]  && [gamemode isEqual:@"one"]){
             [self losegame];
         }
     }else if(![self judge] && ![currentstate containsObject:@" "]){
