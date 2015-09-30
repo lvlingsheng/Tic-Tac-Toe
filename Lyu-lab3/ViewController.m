@@ -126,7 +126,7 @@ enum state {
                   delegate:self
                   cancelButtonTitle:nil
                   destructiveButtonTitle:nil
-                  otherButtonTitles:@"I wanna first", @"I wanna second",nil];
+                  otherButtonTitles:@"I wanna first", @"I wanna second",@"Random",nil];
     [orderchoose showInView:self.view];
     orderchoose.tag=2;
 }
@@ -155,10 +155,21 @@ enum state {
         if(buttonIndex==0){
             player=@"X";
             playeralpha=@"X";
-        }else{
+        }else if(actionSheet.tag==1){
             player=@"O";
             playeralpha=@"O";
             [self smartgame];
+        }else{
+            int first = arc4random_uniform(2);
+            if(first==0){
+                player=@"X";
+                playeralpha=@"X";
+            }
+            if(first==1){
+                player=@"O";
+                playeralpha=@"O";
+                [self smartgame];
+            }
         }
     }
     
